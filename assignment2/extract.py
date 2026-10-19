@@ -26,7 +26,7 @@ def extract_json_array(text):
     if not isinstance(text, str):
         return []
     decoder = json.JSONDecoder()
-    for match in re.finditer(r"\\[", text):
+    for match in re.finditer(r"\[", text):
         try:
             value, _ = decoder.raw_decode(text[match.start():])
         except json.JSONDecodeError:
